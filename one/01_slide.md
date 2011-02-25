@@ -8,7 +8,7 @@
 * Not A JS Developer
 * SC & Lebowski are both under heavy development
 
-!SLIDE
+!SLIDE bullets incremental
 # What is Lebowski
 * Full-Stack Testing Framework
 * Ruby Object Layer
@@ -19,7 +19,7 @@
 * Your interactions are stable
 * You actually have time to invest
 
-!SLIDE Level Up
+!SLIDE bullets incremental
 # Suggestions for Scaling Full-Stack Testing
-* Leverage VM's
+* Leverage VMs
 * Headless & Parallel via Xvfb, Hydra, etc.
