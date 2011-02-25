@@ -2,9 +2,12 @@
 # Lebowski:
 ## A SproutCore Testing Framework
 
-!SLIDE 
+!SLIDE bullets incremental
 # Disclaimer:
 * Engineer@Transis
-* Not A SproutCore Developer
+* Not A JS Developer
 
-!SLIDE Why Do I Care?
+!SLIDE 
+# Reality
+
+!SLIDE
