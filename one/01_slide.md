@@ -13,34 +13,48 @@
 * ![center](transis_no.tagline.png)
 
 !SLIDE bullets
+# _"Obviously you're not a golfer."_
 * Not A JS Developer
 * SC & Lebowski are both under heavy development
 
-!SLIDE bullets incremental
-# What is Lebowski?
-* Full-Stack Testing Framework
+!SLIDE smbullets incremental
+# _"You know, that or uh, His Dudeness, or uh, Duder, or El Duderino if you're not into the whole brevity thing."_
 * Ruby Object Layer
 * Built on top of selenium-client
+* Exposes matchers
 * <tt>gem install lebowski</tt>
-
-!SLIDE bullets incremental
-# When to Use Lebowski
-* Your interactions are stable
-* You actually have time to invest
-* An automated regression suite provides value
-
-!SLIDE smbullets incremental
-# Tools
-* Firebug / Chrome Developer Tool
-* [https://addons.mozilla.org/en-US/firefox/addon/sproutcore-pathpicker](https://addons.mozilla.org/en-US/firefox/addon/sproutcore-pathpicker)
-* Cucumber, RSpec, minitest, etc.
-* Your source code
 
 !SLIDE bullets incremental
 # _"Ve vant ze money, Lebowski"_
 * Drag n' Drop
 * Complex interactions
 * SC layerID
+
+!SLIDE smaller 
+# examples/hello_world_spec.rb
+    @@@ ruby
+    App = MainApplication.new \
+            :app_root_path => "/hello_world",
+            :app_name => "HelloWorldApp",
+            :browser => :firefox
+    App.start do |app|
+      app['isLoaded'] == true
+    end
+
+    # alias
+    App.define_path 'group', 'mainPage.mainPane.groupView', View
+
+!SLIDE code smaller
+    @@@ ruby
+    before(:all) do····
+      @label = App['group.label', 'SC.LabelView']
+      @hello_button = App['group.helloButton', ButtonView]
+      @world_button = App['#world-button', ButtonView]
+    end
+
+    it "will check that label has an initial value 'click a button'" do
+      @label.should have_value /click a button/i
+    end
 
 !SLIDE center
 * ![center](sc-log.jpg)
@@ -88,6 +102,19 @@
 
 !SLIDE center
 * ![center](lebowski-issue.jpg)
+
+!SLIDE bullets incremental
+# When to Use Lebowski
+* Your interactions are stable
+* You actually have time to invest
+* An automated regression suite provides value
+
+!SLIDE bullets incremental
+# Tools
+* Firebug / Chrome Developer Tool
+* [https://addons.mozilla.org/en-US/firefox/addon/sproutcore-pathpicker](https://addons.mozilla.org/en-US/firefox/addon/sproutcore-pathpicker)
+* Cucumber, RSpec, minitest, etc.
+* Your source code
 
 !SLIDE bullets incremental
 # _"Yeah, well, that's just, like, your opinion, man."_
