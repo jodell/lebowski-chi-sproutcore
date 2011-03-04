@@ -17,14 +17,14 @@
 * Not A JS Developer
 * SC & Lebowski are both under heavy development
 
-!SLIDE smbullets incremental
-# _"You know, that or uh, His Dudeness, or uh, Duder, or El Duderino if you're not into the whole brevity thing."_
+!SLIDE bullets
+# _"And I'm talkin' about the Dude here"_
 * Ruby Object Layer
 * Built on top of selenium-client
-* Exposes matchers
+* Exposes custom rspec matchers
 * <tt>gem install lebowski</tt>
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # _"Ve vant ze money, Lebowski"_
 * Drag n' Drop
 * Complex interactions
@@ -37,6 +37,7 @@
             :app_root_path => "/hello_world",
             :app_name => "HelloWorldApp",
             :browser => :firefox
+
     App.start do |app|
       app['isLoaded'] == true
     end
@@ -46,30 +47,14 @@
 
 !SLIDE code smaller
     @@@ ruby
-    before(:all) do····
+    before(:all) do
       @label = App['group.label', 'SC.LabelView']
       @hello_button = App['group.helloButton', ButtonView]
       @world_button = App['#world-button', ButtonView]
     end
 
-    it "will check that label has an initial value 'click a button'" do
+    it "will check that label has the value 'click a button'" do
       @label.should have_value /click a button/i
-    end
-
-!SLIDE center
-* ![center](sc-log.jpg)
-
-!SLIDE smaller
-# Still need standard AJAX tricks
-    @@@ ruby
-    def wait_for_no_spinner
-      spinner = "//div[@class='transis-spinner']"
-      app.driver.wait_for_no_element spinner if agent.element? spinner
-    end
-
-    def wait_for_not_saving
-      saving = "//label[contains(text(), 'Saving ...')]"
-      app.driver.wait_for_no_element saving if agent.element? saving
     end
 
 !SLIDE code smaller
@@ -84,10 +69,27 @@
         When I click the button 'Submit Placements'
         ...
 
-!SLIDE
+!SLIDE center
 # An now an offering to the demo gods...
+* ![center](offering.jpg)
 
-!SLIDE bullets incremental
+!SLIDE center
+* ![center](sc-log.jpg)
+
+!SLIDE smaller
+# _"(Maude) You can imagine where it goes from here... (The Dude) He fixes the cable?"_
+    @@@ ruby
+    def wait_for_no_spinner
+      spinz = "//div[@class='transis-spinner']"
+      app.driver.wait_for_no_element spinz if agent.element? spinz
+    end
+
+    def wait_for_not_saving
+      saving = "//label[contains(text(), 'Saving ...')]"
+      app.driver.wait_for_no_element saving if agent.element? saving
+    end
+
+!SLIDE bullets
 # _"This is what happens when you find a stranger in the alps!"_
 * GridView
 * Custom Views
@@ -103,37 +105,38 @@
 !SLIDE center
 * ![center](lebowski-issue.jpg)
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # When to Use Lebowski
 * Your interactions are stable
 * You actually have time to invest
 * An automated regression suite provides value
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # Tools
 * Firebug / Chrome Developer Tool
 * [https://addons.mozilla.org/en-US/firefox/addon/sproutcore-pathpicker](https://addons.mozilla.org/en-US/firefox/addon/sproutcore-pathpicker)
 * Cucumber, RSpec, minitest, etc.
 * Your source code
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # _"Yeah, well, that's just, like, your opinion, man."_
 * Leverage VMs
 * Headless & Parallel via Xvfb, Hydra, etc.
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # Future
 * SC Updates
 * Selenium 2 and Firefox 4
 
-!SLIDE bullets incremental
-* Testing framework by @frozencanuck
+!SLIDE bullets
+# _"That rug really tied the room together"_
+* Lebowski, Ki by @frozencanuck
 * Under active development
 * Generally works well, excellent documentation
 * Sometimes have to break abstraction
-* Lots to do
+* Fun work ahead
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # Thanks!
 * Jeffrey O'Dell, @umsondo
 * [http://github.com/frozencanuck/lebowski](http://github.com/frozencanuck/lebowski)
